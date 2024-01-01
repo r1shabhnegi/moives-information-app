@@ -13,7 +13,6 @@ function App() {
     fetchApiConfig();
   }, []);
 
-  console.log(url);
   const fetchApiConfig = () => {
     fetchDataFromApi('/configuration').then((res) => {
       console.log(res);
