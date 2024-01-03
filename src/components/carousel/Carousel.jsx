@@ -15,7 +15,7 @@ import CircleRating from '../circleRating/CircleRating';
 import Genres from '../genres/Genres';
 // import { DownChevron } from 'react-select/dist/declarations/src/components/indicators';
 
-const Carousel = ({ data, loading }) => {
+const Carousel = ({ data, loading, endpoint }) => {
   console.log(data);
   const carouselContainer = useRef();
 
@@ -71,7 +71,9 @@ const Carousel = ({ data, loading }) => {
                 <div
                   key={item.id}
                   className='carouselItem'
-                  onClick={() => navigate(`/${item.media_type}/${item.id}`)}>
+                  onClick={() =>
+                    navigate(`/${item.media_typ || endpoint}/${item.id}`)
+                  }>
                   <div className='posterBlock'>
                     <Img src={posterUrl} />
                     <CircleRating rating={item.vote_average.toFixed(1)} />
