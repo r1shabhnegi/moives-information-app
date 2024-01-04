@@ -16,7 +16,6 @@ import Genres from '../genres/Genres';
 // import { DownChevron } from 'react-select/dist/declarations/src/components/indicators';
 
 const Carousel = ({ data, loading, endpoint }) => {
-  console.log(data);
   const carouselContainer = useRef();
 
   const { url } = useSelector((state) => state.home);
@@ -47,6 +46,7 @@ const Carousel = ({ data, loading, endpoint }) => {
       </div>
     );
   };
+
   return (
     <div className='carousel'>
       <ContentWrapper>
@@ -72,7 +72,7 @@ const Carousel = ({ data, loading, endpoint }) => {
                   key={item.id}
                   className='carouselItem'
                   onClick={() =>
-                    navigate(`/${item.media_typ || endpoint}/${item.id}`)
+                    navigate(`/${item.media_type || endpoint}/${item.id}`)
                   }>
                   <div className='posterBlock'>
                     <Img src={posterUrl} />
