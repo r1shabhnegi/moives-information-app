@@ -3,6 +3,7 @@ import './style.scss';
 import { useParams } from 'react-router-dom';
 import useFetch from '../../utils/hooks/useFetch';
 import Cast from './cast/Cast';
+import VideosSection from './videoSection/VideoSection';
 
 const Details = () => {
   const { mediaType, id } = useParams();
@@ -19,6 +20,10 @@ const Details = () => {
       <Cast
         data={credits?.cast}
         loading={creditsLoading}
+      />
+      <VideosSection
+        data={data}
+        loading={loading}
       />
     </div>
   );
