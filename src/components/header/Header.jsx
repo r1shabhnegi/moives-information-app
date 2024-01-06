@@ -56,10 +56,10 @@ const Header = () => {
   const searchQueryHandler = (e) => {
     if (e.key === 'Enter' && query.length > 0) {
       navigate(`/search/${query}`);
+      setTimeout(() => {
+        setShowSearch(false);
+      }, 500);
     }
-    setTimeout(() => {
-      setShowSearch(false);
-    }, 1000);
   };
   const navigationHandler = (type) => {
     if (type === 'movie') {
@@ -71,10 +71,15 @@ const Header = () => {
     setMobileMenu(false);
   };
 
+  const handleLogoClick = () => {
+    navigate('/');
+  };
   return (
     <header className={`header ${mobileMenu && 'mobileView'} ${show}`}>
       <ContentWrapper>
-        <div className='logo'>
+        <div
+          className='logo'
+          onClick={handleLogoClick}>
           <img
             src={logo}
             alt='logo'
